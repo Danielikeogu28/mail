@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Post;
+use App\Observers\PostOberver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Post::observe(PostOberver::class);
     }
 }
